@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		840C97F91C87C61B0069128F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C97F81C87C61B0069128F /* main.m */; };
 		840C97FC1C87C61B0069128F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C97FB1C87C61B0069128F /* AppDelegate.m */; };
-		840C97FF1C87C61B0069128F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C97FE1C87C61B0069128F /* ViewController.m */; };
-		840C98021C87C61B0069128F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C98001C87C61B0069128F /* Main.storyboard */; };
 		840C98041C87C61B0069128F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840C98031C87C61B0069128F /* Images.xcassets */; };
 		840C98071C87C61B0069128F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C98051C87C61B0069128F /* LaunchScreen.xib */; };
 		840C98131C87C61C0069128F /* MyGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C98121C87C61C0069128F /* MyGameTests.m */; };
+		840C981E1C87C9A40069128F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C981D1C87C9A40069128F /* RootViewController.m */; };
+		840C98211C87CF660069128F /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C98201C87CF660069128F /* GameViewController.m */; };
+		840C98241C87D1DB0069128F /* MasuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C98231C87D1DA0069128F /* MasuView.m */; };
+		840C98271C87D1F60069128F /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C98261C87D1F60069128F /* BoardView.m */; };
+		841C074D1C892B52000ADC79 /* RecordData.m in Sources */ = {isa = PBXBuildFile; fileRef = 841C074C1C892B52000ADC79 /* RecordData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,21 @@
 		840C97F81C87C61B0069128F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		840C97FA1C87C61B0069128F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		840C97FB1C87C61B0069128F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		840C97FD1C87C61B0069128F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		840C97FE1C87C61B0069128F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		840C98011C87C61B0069128F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		840C98031C87C61B0069128F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		840C98061C87C61B0069128F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		840C980C1C87C61C0069128F /* MyGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840C98111C87C61C0069128F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840C98121C87C61C0069128F /* MyGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGameTests.m; sourceTree = "<group>"; };
+		840C981C1C87C9A40069128F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		840C981D1C87C9A40069128F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		840C981F1C87CF660069128F /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		840C98201C87CF660069128F /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		840C98221C87D1DA0069128F /* MasuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasuView.h; sourceTree = "<group>"; };
+		840C98231C87D1DA0069128F /* MasuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasuView.m; sourceTree = "<group>"; };
+		840C98251C87D1F60069128F /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		840C98261C87D1F60069128F /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		841C074B1C892B52000ADC79 /* RecordData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordData.h; sourceTree = "<group>"; };
+		841C074C1C892B52000ADC79 /* RecordData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +93,19 @@
 			children = (
 				840C97FA1C87C61B0069128F /* AppDelegate.h */,
 				840C97FB1C87C61B0069128F /* AppDelegate.m */,
-				840C97FD1C87C61B0069128F /* ViewController.h */,
-				840C97FE1C87C61B0069128F /* ViewController.m */,
-				840C98001C87C61B0069128F /* Main.storyboard */,
+				840C981C1C87C9A40069128F /* RootViewController.h */,
+				840C981D1C87C9A40069128F /* RootViewController.m */,
 				840C98031C87C61B0069128F /* Images.xcassets */,
 				840C98051C87C61B0069128F /* LaunchScreen.xib */,
 				840C97F61C87C61B0069128F /* Supporting Files */,
+				840C981F1C87CF660069128F /* GameViewController.h */,
+				840C98201C87CF660069128F /* GameViewController.m */,
+				840C98221C87D1DA0069128F /* MasuView.h */,
+				840C98231C87D1DA0069128F /* MasuView.m */,
+				840C98251C87D1F60069128F /* BoardView.h */,
+				840C98261C87D1F60069128F /* BoardView.m */,
+				841C074B1C892B52000ADC79 /* RecordData.h */,
+				841C074C1C892B52000ADC79 /* RecordData.m */,
 			);
 			path = MyGame;
 			sourceTree = "<group>";
@@ -199,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840C98021C87C61B0069128F /* Main.storyboard in Resources */,
 				840C98071C87C61B0069128F /* LaunchScreen.xib in Resources */,
 				840C98041C87C61B0069128F /* Images.xcassets in Resources */,
 			);
@@ -219,9 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840C97FF1C87C61B0069128F /* ViewController.m in Sources */,
+				840C98211C87CF660069128F /* GameViewController.m in Sources */,
 				840C97FC1C87C61B0069128F /* AppDelegate.m in Sources */,
+				840C981E1C87C9A40069128F /* RootViewController.m in Sources */,
 				840C97F91C87C61B0069128F /* main.m in Sources */,
+				840C98241C87D1DB0069128F /* MasuView.m in Sources */,
+				841C074D1C892B52000ADC79 /* RecordData.m in Sources */,
+				840C98271C87D1F60069128F /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +264,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		840C98001C87C61B0069128F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				840C98011C87C61B0069128F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		840C98051C87C61B0069128F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -416,6 +428,7 @@
 				840C98181C87C61C0069128F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		840C98191C87C61C0069128F /* Build configuration list for PBXNativeTarget "MyGameTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +437,7 @@
 				840C981B1C87C61C0069128F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

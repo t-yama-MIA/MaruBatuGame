@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  MyGame
 //
 //  Created by トライアローズ開発 on 2016/03/03.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
 
+/**
+ タイトル画面
+ */
+@interface RootViewController : UIViewController
 
 @end
-
