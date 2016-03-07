@@ -363,7 +363,7 @@
     
     // リセット処理を親が実装(GameViewController)
     if ([self.delegate respondsToSelector:@selector(boardView:finishGameWinFirst:)]) {
-        [self.delegate boardView:self finishGameWinFirst:(win==1)?YES:NO];
+        [self.delegate boardView:self finishGameWinFirst:win];
     }
 }
 

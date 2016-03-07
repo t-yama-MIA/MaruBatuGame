@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordData.h"
 
 @protocol BoardViewDelegate;
 
@@ -44,7 +45,7 @@
  勝敗がついたときに呼ばれる
  @param winFirst 先攻が勝者の場合YES.後攻が勝者の場合NO.
  */
-- (void)boardView:(BoardView *)boardView finishGameWinFirst:(BOOL)winFirst;
+- (void)boardView:(BoardView *)boardView finishGameWinFirst:(ResultType)resultType;
 
  @optional
 /**

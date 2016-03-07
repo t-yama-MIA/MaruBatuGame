@@ -147,7 +147,7 @@
         self.resultLabel = rLabel;
     }
     
-    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%d勝 後攻:%d勝",firstWin,secondWin];
+    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%ld勝 後攻:%ld勝",firstWin,secondWin];
 }
 
 #pragma mark - Event

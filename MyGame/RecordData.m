@@ -9,8 +9,9 @@
 #import "RecordData.h"
 
 static NSString * const keyUserdefaultResult = @"result";
-static NSString * const keyFirstWin = @"first";
+static NSString * const keyFirstWin  = @"first";
 static NSString * const keySecondWin = @"second";
+static NSString * const keyDraw      = @"draw";
 
 @implementation RecordData
 
@@ -27,7 +28,20 @@ static NSString * const keySecondWin = @"second";
         r = [record mutableCopy];
     }
     
-    NSString *winKey = (result == ResultTypeFirst)?keyFirstWin:keySecondWin;
+    NSString *winKey;
+    
+    switch (result) {
+        case ResultTypeFirst:
+            winKey = keyFirstWin;
+            break;
+        case ResultTypeSecond:
+            winKey = keySecondWin;
+            break;
+        case ResultTypeDraw:
+            winKey = keyDraw;
+            break;
+    }
+    
     NSNumber *numWinCount = r[winKey];
     if (!numWinCount) {
         numWinCount = @(0);
