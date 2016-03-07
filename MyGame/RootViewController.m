@@ -133,7 +133,8 @@
 {
     NSInteger firstWin = [RecordData loadResult:ResultTypeFirst];
     NSInteger secondWin = [RecordData loadResult:ResultTypeSecond];
-    
+    NSInteger draw = [RecordData loadResult:ResultTypeDraw];
+
     if (!self.resultLabel) {
         
         CGRect rc = [[UIScreen mainScreen] applicationFrame];
@@ -142,12 +143,14 @@
         rLabel.textColor = [UIColor whiteColor];
         rLabel.font = [UIFont boldSystemFontOfSize:16];
         rLabel.textAlignment = NSTextAlignmentCenter;
+        rLabel.minimumScaleFactor = 10.0f; //最小フォントサイズを指定
+        rLabel.adjustsFontSizeToFitWidth = YES;
         
         [self.view addSubview:rLabel];
         self.resultLabel = rLabel;
     }
     
-    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%ld勝 後攻:%ld勝",firstWin,secondWin];
+    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%ld勝 後攻:%ld勝 引き分け:%ld",firstWin,secondWin,draw];
 }
 
 #pragma mark - Event

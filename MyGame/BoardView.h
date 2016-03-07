@@ -43,7 +43,7 @@
  @required
 /**
  勝敗がついたときに呼ばれる
- @param winFirst 先攻が勝者の場合YES.後攻が勝者の場合NO.
+ @param resultType 勝敗を表すENUMの値
  */
 - (void)boardView:(BoardView *)boardView finishGameWinFirst:(ResultType)resultType;
 
