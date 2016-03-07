@@ -143,6 +143,8 @@
         rLabel.textColor = [UIColor whiteColor];
         rLabel.font = [UIFont boldSystemFontOfSize:16];
         rLabel.textAlignment = NSTextAlignmentCenter;
+        rLabel.minimumScaleFactor = 10.0f; //最小フォントサイズを指定
+        rLabel.adjustsFontSizeToFitWidth = YES;
         
         [self.view addSubview:rLabel];
         self.resultLabel = rLabel;
