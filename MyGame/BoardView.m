@@ -106,13 +106,14 @@
     return YES;
 }
 
+#pragma mark - Draw
 /*
  引き分け判定
  @return NOなら途中。YESなら引き分け。
 */
 - (BOOL)judgeDraw
 {
-    NSInteger count;
+    NSInteger count = 0;
     
     // 横
     if ([self judgeRowDraw]){
@@ -143,31 +144,28 @@
 - (BOOL)judgeRowDraw
 {
     // 全ての横行に◯×の両方が含まれていれば、引き分け
-    
-    NSString *tempTitle = nil;
-    NSInteger count = 0;
+    BOOL isFirst = NO;
+    BOOL isSecond = NO;
     
     for (NSMutableArray *rows in self.masViews) {
         for (MasuView *masView in rows) {
             // tempTitleに文字を一度のみ格納する。
             if (!masView.title || masView.title.length == 0) {
                 continue;
-            }else if (tempTitle == nil){
-                tempTitle = masView.title;
-                continue;
+            }else if ([masView.title isEqualToString:self.firstTitle]) {
+                isFirst = YES;
+            }else if ([masView.title isEqualToString:self.secondTitle]) {
+                isSecond = YES;
             }
-            
-            if (![masView.title isEqualToString:tempTitle]) {
-                count++;
-            }
+        }
+        
+        // 1つの行に◯もしくは×が含まれていなければ、継続する。
+        if (isFirst == NO || isSecond == NO) {
+            return NO;
         }
     }
     
-    if (self.masNumber == count) {
-        return YES;
-    }
-    
-    return NO;
+    return YES;
 }
 
 /*
@@ -176,9 +174,9 @@
  */
 - (BOOL)judgeColmnDraw
 {
-    // 全ての横行に◯×の両方が含まれていれば、引き分け
-    __block NSString *tempTitle = nil;
-    __block NSInteger count = 0;
+    // 全ての縦列に◯×の両方が含まれていれば、引き分け
+    __block BOOL isFirst = NO;
+    __block BOOL isSecond = NO;
     
     for (NSUInteger colmn = 0; colmn < self.masNumber; colmn++) {
         [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
@@ -187,22 +185,19 @@
             // tempTitleに文字を一度のみ格納する。
             if (!masView.title || masView.title.length == 0) {
                 return;
-            }else if (tempTitle == nil){
-                tempTitle = masView.title;
-                return;
-            }
-            
-            if (![masView.title isEqualToString:tempTitle]) {
-                count++;
+            }else if ([masView.title isEqualToString:self.firstTitle]){
+                isFirst = YES;
+            }else if ([masView.title isEqualToString:self.secondTitle]){
+                isSecond = YES;
             }
         }];
+        
+        if (isFirst == NO || isSecond == NO) {
+            return NO;
+        }
     }
     
-    if (self.masNumber == count) {
-        return YES;
-    }
-    
-    return NO;
+    return YES;
 }
 
 /*
@@ -211,8 +206,8 @@
  */
 - (BOOL)judgeSlantingDraw
 {
-    __block NSString *tempTitle = nil;
-    __block NSInteger count = 0;
+    __block BOOL isFirst = NO;
+    __block BOOL isSecond = NO;
     __block NSUInteger colmn = 0;
     
     // 1回目
@@ -222,21 +217,22 @@
         // tempTitleに文字を一度のみ格納する。
         if (!masView.title || masView.title.length == 0) {
             return;
-        }else if (tempTitle == nil){
-            tempTitle = masView.title;
-            return;
-        }
-        
-        if (![masView.title isEqualToString:tempTitle]) {
-            count++;
+        }else if ([masView.title isEqualToString:self.firstTitle]){
+            isFirst = YES;
+        }else if ([masView.title isEqualToString:self.secondTitle]){
+            isSecond = YES;
         }
         
         colmn++;
     }];
     
-    // リセット
-    tempTitle = nil;
+    if (isFirst == NO || isSecond == NO) {
+        return NO;
+    }
     
+    isFirst = NO;
+    isSecond = NO;
+
     // 2回目
     // 対角線なので2回だけ実行
     colmn = self.masNumber -1;
@@ -246,25 +242,23 @@
         // tempTitleに文字を一度のみ格納する。
         if (!masView.title || masView.title.length == 0) {
             return;
-        }else if (tempTitle == nil){
-            tempTitle = masView.title;
-            return;
-        }
-        
-        if (![masView.title isEqualToString:tempTitle]) {
-            count++;
+        }else if ([masView.title isEqualToString:self.firstTitle]){
+            isFirst = YES;
+        }else if ([masView.title isEqualToString:self.secondTitle]){
+            isSecond = YES;
         }
         
         colmn--;
     }];
     
-    if (count == 2) {
-        return YES;
+    if (isFirst == NO || isSecond == NO) {
+        return NO;
     }
     
-    return NO;
+    return YES;
 }
 
+#pragma mark - Winner
 /*
  勝者判定
  @return 0なら途中。1なら先攻が勝ち。2なら後攻が勝ち。
