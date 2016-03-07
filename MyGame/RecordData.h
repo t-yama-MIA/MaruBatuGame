@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, ResultType) {
-    ResultTypeFirst = 1,
+    ResultTypeDraw   = 0,
+    ResultTypeFirst  = 1,
     ResultTypeSecond = 2,
 };
 
