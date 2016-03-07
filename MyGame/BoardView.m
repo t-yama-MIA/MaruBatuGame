@@ -150,9 +150,7 @@
 
         for (MasuView *masView in rows) {
             // tempTitleに文字を一度のみ格納する。
-            if (!masView.title || masView.title.length == 0) {
-                continue;
-            }else if ([masView.title isEqualToString:self.firstTitle]) {
+            if ([masView.title isEqualToString:self.firstTitle]) {
                 isFirst = YES;
             }else if ([masView.title isEqualToString:self.secondTitle]) {
                 isSecond = YES;
@@ -183,9 +181,7 @@
             MasuView *masView = rows[colmn];
 
             // tempTitleに文字を一度のみ格納する。
-            if (!masView.title || masView.title.length == 0) {
-                return;
-            }else if ([masView.title isEqualToString:self.firstTitle]){
+            if ([masView.title isEqualToString:self.firstTitle]){
                 isFirst = YES;
             }else if ([masView.title isEqualToString:self.secondTitle]){
                 isSecond = YES;
@@ -215,9 +211,7 @@
     [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
         MasuView *masView = rows[colmn];
         // tempTitleに文字を一度のみ格納する。
-        if (!masView.title || masView.title.length == 0) {
-            return;
-        }else if ([masView.title isEqualToString:self.firstTitle]){
+        if ([masView.title isEqualToString:self.firstTitle]){
             isFirst = YES;
         }else if ([masView.title isEqualToString:self.secondTitle]){
             isSecond = YES;
@@ -227,6 +221,7 @@
     }];
     
     if (isFirst == NO || isSecond == NO) {
+        NSLog(@"斜めNo1回目");
         return NO;
     }
     
@@ -240,9 +235,7 @@
     [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
         MasuView *masView = rows[colmn];
         // tempTitleに文字を一度のみ格納する。
-        if (!masView.title || masView.title.length == 0) {
-            return;
-        }else if ([masView.title isEqualToString:self.firstTitle]){
+        if ([masView.title isEqualToString:self.firstTitle]){
             isFirst = YES;
         }else if ([masView.title isEqualToString:self.secondTitle]){
             isSecond = YES;
@@ -252,9 +245,11 @@
     }];
     
     if (isFirst == NO || isSecond == NO) {
+        NSLog(@"斜めNo2回目");
         return NO;
     }
     
+    NSLog(@"斜めOK");
     return YES;
 }
 
