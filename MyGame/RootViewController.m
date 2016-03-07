@@ -133,7 +133,8 @@
 {
     NSInteger firstWin = [RecordData loadResult:ResultTypeFirst];
     NSInteger secondWin = [RecordData loadResult:ResultTypeSecond];
-    
+    NSInteger draw = [RecordData loadResult:ResultTypeDraw];
+
     if (!self.resultLabel) {
         
         CGRect rc = [[UIScreen mainScreen] applicationFrame];
@@ -147,7 +148,7 @@
         self.resultLabel = rLabel;
     }
     
-    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%ld勝 後攻:%ld勝",firstWin,secondWin];
+    self.resultLabel.text = [NSString stringWithFormat:@"先攻:%ld勝 後攻:%ld勝 引き分け:%ld",firstWin,secondWin,draw];
 }
 
 #pragma mark - Event

@@ -69,7 +69,18 @@ static NSString * const keyDraw      = @"draw";
         r = [record mutableCopy];
     }
     
-    NSString *winKey = (result == ResultTypeFirst)?keyFirstWin:keySecondWin;
+    NSString *winKey;
+    switch (result) {
+        case ResultTypeFirst:
+            winKey = keyFirstWin;
+            break;
+        case ResultTypeSecond:
+            winKey = keySecondWin;
+            break;
+        case ResultTypeDraw:
+            winKey = keyDraw;
+            break;
+    }
     
     NSNumber *numWinCount = r[winKey];
     if (!numWinCount) {
