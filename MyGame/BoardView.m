@@ -90,7 +90,6 @@
  */
 - (BOOL)isFinishedGame
 {
-    // FIXME: ここ直してます
     if ([self judgeDraw]) {
         return YES;
     }
