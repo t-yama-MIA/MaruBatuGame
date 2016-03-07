@@ -90,6 +90,11 @@
  */
 - (BOOL)isFinishedGame
 {
+    // FIXME: ここ直してます
+    if ([self judgeDraw]) {
+        return YES;
+    }
+    
     for (NSMutableArray *rows in self.masViews) {
         for (MasuView *masView in rows) {
             if (!masView.title || masView.title.length == 0) {
@@ -99,6 +104,165 @@
     }
     
     return YES;
+}
+
+/*
+ 引き分け判定
+ @return NOなら途中。YESなら引き分け。
+*/
+- (BOOL)judgeDraw
+{
+    NSInteger count;
+    
+    // 横
+    if ([self judgeRowDraw]){
+        count++;
+    }
+    
+    // 縦
+    if ([self judgeColmnDraw]) {
+        count++;
+    }
+    
+    // 斜め
+    if ([self judgeSlantingDraw]) {
+        count++;
+    }
+    
+    if (count == 3) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+/*
+ 行(横方向)の引き分け判定
+ @return NOなら途中。YESなら引き分け。
+ */
+- (BOOL)judgeRowDraw
+{
+    // 全ての横行に◯×の両方が含まれていれば、引き分け
+    
+    NSString *tempTitle = nil;
+    NSInteger count = 0;
+    
+    for (NSMutableArray *rows in self.masViews) {
+        for (MasuView *masView in rows) {
+            // tempTitleに文字を一度のみ格納する。
+            if (!masView.title || masView.title.length == 0) {
+                continue;
+            }else if (tempTitle == nil){
+                tempTitle = masView.title;
+                continue;
+            }
+            
+            if (![masView.title isEqualToString:tempTitle]) {
+                count++;
+            }
+        }
+    }
+    
+    if (self.masNumber == count) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+/*
+ 列(縦方向)の引き分け判定
+ @return NOなら途中。YESなら引き分け。
+ */
+- (BOOL)judgeColmnDraw
+{
+    // 全ての横行に◯×の両方が含まれていれば、引き分け
+    __block NSString *tempTitle = nil;
+    __block NSInteger count = 0;
+    
+    for (NSUInteger colmn = 0; colmn < self.masNumber; colmn++) {
+        [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
+            MasuView *masView = rows[colmn];
+
+            // tempTitleに文字を一度のみ格納する。
+            if (!masView.title || masView.title.length == 0) {
+                return;
+            }else if (tempTitle == nil){
+                tempTitle = masView.title;
+                return;
+            }
+            
+            if (![masView.title isEqualToString:tempTitle]) {
+                count++;
+            }
+        }];
+    }
+    
+    if (self.masNumber == count) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+/*
+ 斜めの引き分け判定
+ @return NOなら途中。YESなら引き分け。
+ */
+- (BOOL)judgeSlantingDraw
+{
+    __block NSString *tempTitle = nil;
+    __block NSInteger count = 0;
+    __block NSUInteger colmn = 0;
+    
+    // 1回目
+    // 対角線なので2回だけ実行
+    [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
+        MasuView *masView = rows[colmn];
+        // tempTitleに文字を一度のみ格納する。
+        if (!masView.title || masView.title.length == 0) {
+            return;
+        }else if (tempTitle == nil){
+            tempTitle = masView.title;
+            return;
+        }
+        
+        if (![masView.title isEqualToString:tempTitle]) {
+            count++;
+        }
+        
+        colmn++;
+    }];
+    
+    // リセット
+    tempTitle = nil;
+    
+    // 2回目
+    // 対角線なので2回だけ実行
+    colmn = self.masNumber -1;
+    
+    [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
+        MasuView *masView = rows[colmn];
+        // tempTitleに文字を一度のみ格納する。
+        if (!masView.title || masView.title.length == 0) {
+            return;
+        }else if (tempTitle == nil){
+            tempTitle = masView.title;
+            return;
+        }
+        
+        if (![masView.title isEqualToString:tempTitle]) {
+            count++;
+        }
+        
+        colmn--;
+    }];
+    
+    if (count == 2) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 /*
