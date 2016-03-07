@@ -144,10 +144,10 @@
 - (BOOL)judgeRowDraw
 {
     // 全ての横行に◯×の両方が含まれていれば、引き分け
-    BOOL isFirst = NO;
-    BOOL isSecond = NO;
-    
     for (NSMutableArray *rows in self.masViews) {
+        BOOL isFirst = NO;
+        BOOL isSecond = NO;
+
         for (MasuView *masView in rows) {
             // tempTitleに文字を一度のみ格納する。
             if (!masView.title || masView.title.length == 0) {
@@ -175,10 +175,10 @@
 - (BOOL)judgeColmnDraw
 {
     // 全ての縦列に◯×の両方が含まれていれば、引き分け
-    __block BOOL isFirst = NO;
-    __block BOOL isSecond = NO;
-    
     for (NSUInteger colmn = 0; colmn < self.masNumber; colmn++) {
+        __block BOOL isFirst = NO;
+        __block BOOL isSecond = NO;
+
         [self.masViews enumerateObjectsUsingBlock:^(NSMutableArray *rows, NSUInteger idx, BOOL *stop) {
             MasuView *masView = rows[colmn];
 
