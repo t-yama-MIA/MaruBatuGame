@@ -220,7 +220,6 @@
     }];
     
     if (isFirst == NO || isSecond == NO) {
-        NSLog(@"斜めNo1回目");
         return NO;
     }
     
@@ -244,11 +243,9 @@
     }];
     
     if (isFirst == NO || isSecond == NO) {
-        NSLog(@"斜めNo2回目");
         return NO;
     }
     
-    NSLog(@"斜めOK");
     return YES;
 }
 
@@ -272,7 +269,6 @@
     }
     
     // ななめ
-    
     NSInteger slantingWinner = [self judgeSlantingWinner];
     if (slantingWinner != 0) {
         return slantingWinner;
